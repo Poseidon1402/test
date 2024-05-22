@@ -84,6 +84,7 @@ class SubscriptionSecondStepScreen extends StatelessWidget {
                           label: 'Code de Confirmation',
                           backgroundColor: Colors.transparent,
                           borderRadius: 0,
+                          keyboardType: TextInputType.number,
                           prefixIcon: Icon(
                             Icons.email,
                             color: AppColor.white1,

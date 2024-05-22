@@ -3,7 +3,7 @@ import 'package:gap/gap.dart';
 
 import '../../../../core/utils/colors/app_color.dart';
 import '../../../../shared/components/shape/blurred_circle_shape.dart';
-import '../partials/first_step_body.dart';
+import '../partials/first_step_form.dart';
 import '../partials/subscribe_via_social_media_partial.dart';
 
 class SubscriptionFirstStepScreen extends StatelessWidget {
@@ -66,7 +66,7 @@ class SubscriptionFirstStepScreen extends StatelessWidget {
                     ),
                   ),
                   const Gap(25),
-                  const FirstStepBody(),
+                  const FirstStepForm(),
                   const Gap(70),
                   FractionallySizedBox(
                     widthFactor: 0.9,

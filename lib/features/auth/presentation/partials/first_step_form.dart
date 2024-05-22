@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
@@ -13,14 +14,14 @@ import '../../../../shared/components/others/app_snackbar.dart';
 import '../../domain/params/subscription_params.dart';
 import '../bloc/authentication_bloc.dart';
 
-class FirstStepBody extends StatefulWidget {
-  const FirstStepBody({super.key});
+class FirstStepForm extends StatefulWidget {
+  const FirstStepForm({super.key});
 
   @override
-  State<FirstStepBody> createState() => _FirstStepBodyState();
+  State<FirstStepForm> createState() => _FirstStepFormState();
 }
 
-class _FirstStepBodyState extends State<FirstStepBody> {
+class _FirstStepFormState extends State<FirstStepForm> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _phoneController = TextEditingController();
@@ -28,6 +29,9 @@ class _FirstStepBodyState extends State<FirstStepBody> {
   final _passwordController = TextEditingController();
   final _passwordConfirmationController = TextEditingController();
   final _referralIdController = TextEditingController();
+
+  bool showPassword = false;
+  bool showConfirmationPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -91,15 +95,18 @@ class _FirstStepBodyState extends State<FirstStepBody> {
               validator: isRequired,
               label: 'Mot de passe',
               backgroundColor: Colors.transparent,
-              obscureText: true,
+              obscureText: !showPassword,
               borderRadius: 0,
               prefixIcon: const Icon(
                 Icons.lock,
                 color: AppColor.white1,
               ),
-              suffixIcon: const Icon(
-                Icons.remove_red_eye,
-                color: AppColor.white1,
+              suffixIcon: InkWell(
+                onTap: () => setState(() => showPassword = !showPassword),
+                child: Icon(
+                  showPassword ? FontAwesomeIcons.eye : FontAwesomeIcons.eyeSlash,
+                  color: AppColor.white1,
+                ),
               ),
             ),
             const Gap(20),
@@ -109,15 +116,18 @@ class _FirstStepBodyState extends State<FirstStepBody> {
                   isTheSamePassword(_passwordController.text, value ?? ''),
               label: 'Confirmer le Mot de passe',
               backgroundColor: Colors.transparent,
-              obscureText: true,
+              obscureText: !showConfirmationPassword,
               borderRadius: 0,
               prefixIcon: const Icon(
                 Icons.lock,
                 color: AppColor.white1,
               ),
-              suffixIcon: const Icon(
-                Icons.remove_red_eye,
-                color: AppColor.white1,
+              suffixIcon: InkWell(
+                onTap: () => setState(() => showConfirmationPassword = !showConfirmationPassword),
+                child: Icon(
+                  showConfirmationPassword ? FontAwesomeIcons.eye : FontAwesomeIcons.eyeSlash,
+                  color: AppColor.white1,
+                ),
               ),
             ),
             const Gap(20),

@@ -6,6 +6,7 @@ import '../../../../core/utils/colors/app_color.dart';
 import '../../../../core/utils/constants/routes.dart';
 import '../../../../shared/components/buttons/custom_elevated_button.dart';
 import '../../../../shared/components/shape/blurred_circle_shape.dart';
+import '../partials/choose_event_preferences.dart';
 
 class SubscriptionThirdStepScreen extends StatelessWidget {
   const SubscriptionThirdStepScreen({super.key});
@@ -75,51 +76,9 @@ class SubscriptionThirdStepScreen extends StatelessWidget {
                     ),
                   ),
                   const Gap(25),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        FractionallySizedBox(
-                          widthFactor: 0.4,
-                          child: CustomElevatedButton(
-                            onPressed: () => context.push(Routes.subscriptionThirdStep),
-                            borderRadius: 35,
-                            child: Text(
-                              'Enregistrer',
-                              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                color: AppColor.green1,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                  const Expanded(
+                    child: ChooseEventPreferences(),
                   ),
-                  const Gap(20),
-                  Expanded(
-                    child: Center(
-                      child: RichText(
-                        textAlign: TextAlign.center,
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'Vous avez déjà un compte ? ',
-                              style: Theme.of(context).textTheme.bodySmall,
-                            ),
-                            TextSpan(
-                              text: 'Se connecter ',
-                              style:
-                              Theme.of(context).textTheme.bodySmall?.copyWith(
-                                color: AppColor.blue1,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  const Gap(20),
                 ],
               ),
             ),
