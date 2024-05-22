@@ -16,6 +16,7 @@ class SubscriptionFirstStepScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.transparent,
+        scrolledUnderElevation: 0.0,
         actions: const [
           Icon(
             Icons.info,

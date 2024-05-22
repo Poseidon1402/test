@@ -24,8 +24,8 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository {
       } else {
         return const Left(NotConnectedFailure());
       }
-    } on ServerException {
-      return const Left(ServerFailure());
+    } on ServerException catch (e) {
+      return Left(ServerFailure(message: e.message ?? 'Une erreur est survenue'));
     } on InternetConnectionException {
       return const Left(NotConnectedFailure());
     }

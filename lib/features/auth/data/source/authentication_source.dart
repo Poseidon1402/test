@@ -22,15 +22,21 @@ class AuthenticationSourceImpl implements AuthenticationSource {
   Future<UserModel> subscribeUser(SubscriptionParams newUser) async {
     try {
       final response = await client.post(
-        Uri.https(ApiConfig.baseRoute, '/v1/users/signup'),
+        Uri.https(ApiConfig.host, '/api/v1/users/signup/'),
         body: newUser.toJson(),
+        headers: {
+          HttpHeaders.contentTypeHeader: 'application/json'
+        }
       );
 
       if(isSuccess(response.statusCode)) {
         final decodedJson = json.decode(utf8.decode(response.bodyBytes));
         return UserModel.fromJson(decodedJson);
+      } else if (response.statusCode == 400) {
+        final error = json.decode(utf8.decode(response.bodyBytes));
+        throw ServerException(message: error['detail']);
       } else {
-        throw ServerException();
+        throw InvalidDataException();
       }
     } on http.ClientException {
       throw InternetConnectionException();

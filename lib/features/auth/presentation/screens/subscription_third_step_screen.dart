@@ -5,11 +5,10 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/utils/colors/app_color.dart';
 import '../../../../core/utils/constants/routes.dart';
 import '../../../../shared/components/buttons/custom_elevated_button.dart';
-import '../../../../shared/components/input/custom_text_form_field.dart';
 import '../../../../shared/components/shape/blurred_circle_shape.dart';
 
-class SubscriptionSecondStepScreen extends StatelessWidget {
-  const SubscriptionSecondStepScreen({super.key});
+class SubscriptionThirdStepScreen extends StatelessWidget {
+  const SubscriptionThirdStepScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +56,7 @@ class SubscriptionSecondStepScreen extends StatelessWidget {
                     child: FractionallySizedBox(
                       widthFactor: 0.7,
                       child: Text(
-                        'Créer un compte sur SoldOut',
+                        'Finaliser la création du compte sur SoldOut',
                         style: Theme.of(context).textTheme.titleLarge,
                         textAlign: TextAlign.end,
                       ),
@@ -69,7 +68,7 @@ class SubscriptionSecondStepScreen extends StatelessWidget {
                     child: FractionallySizedBox(
                       widthFactor: 0.6,
                       child: Text(
-                        'Veuillez tapez le code de confirmation envoyé à votre email',
+                        'Veuillez choisir votre type d\'évènement préféré',
                         style: Theme.of(context).textTheme.bodySmall,
                         textAlign: TextAlign.end,
                       ),
@@ -80,22 +79,13 @@ class SubscriptionSecondStepScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const CustomTextFormField(
-                          label: 'Code de Confirmation',
-                          backgroundColor: Colors.transparent,
-                          borderRadius: 0,
-                          prefixIcon: Icon(
-                            Icons.email,
-                            color: AppColor.white1,
-                          ),
-                        ),
                         FractionallySizedBox(
                           widthFactor: 0.4,
                           child: CustomElevatedButton(
                             onPressed: () => context.push(Routes.subscriptionThirdStep),
                             borderRadius: 35,
                             child: Text(
-                              'Confirmer',
+                              'Enregistrer',
                               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                                 color: AppColor.green1,
                                 fontWeight: FontWeight.w700,
@@ -120,9 +110,9 @@ class SubscriptionSecondStepScreen extends StatelessWidget {
                             TextSpan(
                               text: 'Se connecter ',
                               style:
-                                  Theme.of(context).textTheme.bodySmall?.copyWith(
-                                        color: AppColor.blue1,
-                                      ),
+                              Theme.of(context).textTheme.bodySmall?.copyWith(
+                                color: AppColor.blue1,
+                              ),
                             ),
                           ],
                         ),

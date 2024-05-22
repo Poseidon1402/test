@@ -1,3 +1,3 @@
 abstract class ApiConfig {
-  static const baseRoute = 'https://api.soldoutnow.com/api';
+  static const host = 'api.soldoutnow.com';
 }
