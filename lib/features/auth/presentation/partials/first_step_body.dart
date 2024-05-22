@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/colors/app_color.dart';
+import '../../../../core/utils/constants/routes.dart';
 import '../../../../shared/components/buttons/custom_elevated_button.dart';
 import '../../../../shared/components/input/custom_text_form_field.dart';
 
@@ -84,7 +86,7 @@ class FirstStepBody extends StatelessWidget {
         FractionallySizedBox(
           widthFactor: 0.4,
           child: CustomElevatedButton(
-            onPressed: () {},
+            onPressed: () => context.push(Routes.subscriptionSecondStep),
             borderRadius: 35,
             child: Text(
               'S\'inscrire',
